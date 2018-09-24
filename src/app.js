@@ -5,4 +5,4 @@ import Home from './components/home';
 ReactDOM.render(
     <Home/>,
     document.getElementById('app')
-)
+);

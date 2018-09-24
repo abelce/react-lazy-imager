@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-class Loader extends React.Component {
+class ImageLoader extends React.Component {
 
     // static propTypes = {
     //     src: PropTypes.string.reRequired,
@@ -11,14 +11,14 @@ class Loader extends React.Component {
     //     src: ''
     // }
 
-    static state = {
-        laoded: false,
+    state = {
+        loaded: false,
     }
 
     componentWillMount() {
-        if (!this.props.src) {
-            throw Error('src is null');
-        }
+        // if (!this.props.src) {
+        //     throw Error('src is null');
+        // }
     }
 
     componentDidMount() {
@@ -52,10 +52,10 @@ class Loader extends React.Component {
     render() {
         return (
             <div>
-
+                afafadfasdfa
             </div>
         );
     }
 }
 
-export default Loaderl;
+export default ImageLoader;

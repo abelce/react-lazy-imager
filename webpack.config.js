@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         app: [
             // path.resolve('babel-polyfill'),
-            __dirname + '\\src\\app.js',
+            __dirname + '/src/app.js',
         ],
     },
     output: {
@@ -19,29 +19,31 @@ module.exports = {
         host: '0.0.0.0',
         port: 3000,
         compress: true,
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,
         hot: true,
+        inline: false,
         disableHostCheck: true,
+        progress: true,
     },
     module: {
         rules: [
             {
-                test: /.js|jsx/,
+                test: /.js$|.jsx$/,
                 include: /src/,
-                exclude:[/node_modules/, /[\\\/]src[\\\/]assets/],
+                exclude:[/node_modules/, /src\/assets/],
                 loader: 'babel-loader',
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + '\\src\\assets\\\index.ejs',
+            template: __dirname + '/src/assets/index.ejs',
         }),
         new webpack.HotModuleReplacementPlugin(),
     ],
     resolve: {
-        // modules: ['src', 'node_modules'],
+        modules: ['src', 'node_modules'],
         extensions: ['.jsx', 'js', '.css'],
     },
 }
