@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class Loader extends React.Component {
 
-    static propTypes = {
-        src: PropTypes.string.reRequired,
-    }
+    // static propTypes = {
+    //     src: PropTypes.string.reRequired,
+    // }
 
-    static defaultProps = {
-        src: ''
-    }
+    // static defaultProps = {
+    //     src: ''
+    // }
 
     static state = {
         laoded: false,

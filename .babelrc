@@ -1,12 +1,11 @@
 {
     "presets": [
-        "env",
-        "react",
-        "stage-0"
+        "@babel/preset-env",
+        "@babel/preset-react"
     ],
     "plugins": [
-        "tansfrom-runtime",
-        "transform-decorators-legacy"
+        ["@babel/transform-runtime"],
+        "@babel/plugin-proposal-class-properties"
     ],
     "env": {
         "production": {

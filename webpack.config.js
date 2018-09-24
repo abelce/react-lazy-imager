@@ -1,14 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     mode: isDev() ? 'development' : 'production',
     entry: {
         app: [
-            path.resolve('babel-polyfill'),
-            __dirname + '/src/app.js',
+            // path.resolve('babel-polyfill'),
+            __dirname + '\\src\\app.js',
         ],
     },
     output: {
@@ -20,7 +19,7 @@ module.exports = {
         host: '0.0.0.0',
         port: 3000,
         compress: true,
-        contentBase:path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
         hot: true,
         disableHostCheck: true,
@@ -31,25 +30,21 @@ module.exports = {
                 test: /.js|jsx/,
                 include: /src/,
                 exclude:[/node_modules/, /[\\\/]src[\\\/]assets/],
-                loader: 'babel-loader'
+                loader: 'babel-loader',
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + '/src/assets/index.ejs',
-        }),
-        new ExtractTextPlugin({
-            filename: 'style.css',
+            template: __dirname + '\\src\\assets\\\index.ejs',
         }),
         new webpack.HotModuleReplacementPlugin(),
     ],
     resolve: {
-        modules: ['src', 'node_mudules'],
-        extensions: ['.jsx', 'js', '.css']
+        // modules: ['src', 'node_modules'],
+        extensions: ['.jsx', 'js', '.css'],
     },
 }
-
 
 function isDev() {
     return process.env.NODE_ENV = 'development';
