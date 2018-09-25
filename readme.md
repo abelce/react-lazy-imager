@@ -1,11 +1,8 @@
 ## React-Imager
----
 
 The **imager** is used to replace <img> tag, and it will lazy to load the picture.
 
-
 ## Installation and usage
----
 Install
 
 ```
@@ -29,8 +26,6 @@ class App extends React.Component {
 ```
 
 ## Props
----
-
 It has all the attributes of the \<img\> tag, such as:
 + src
 + style
@@ -38,7 +33,6 @@ It has all the attributes of the \<img\> tag, such as:
 + alt
 
 ## License
----
 MIT License
 
 ## Keywords
