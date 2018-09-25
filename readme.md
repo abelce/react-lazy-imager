@@ -1,11 +1,12 @@
 ## React-Imager
-
-The **imager** is used to replace <img> tag. 
-
-
-### Installation and usage
 ---
-install
+
+The **imager** is used to replace <img> tag, and it will lazy to load the picture.
+
+
+## Installation and usage
+---
+Install
 
 ```
 npm install -S react-imager
@@ -27,14 +28,18 @@ class App extends React.Component {
 }
 ```
 
-###Props
+## Props
+---
 
-It has all the attributes of the img tag, such as:
+It has all the attributes of the \<img\> tag, such as:
 + src
 + style
 + className
 + alt
 
-### License
-
+## License
+---
 MIT License
+
+## Keywords
+react image lazyload img
