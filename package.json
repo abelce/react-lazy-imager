@@ -1,33 +1,41 @@
 {
-  "name": "react-image-loader",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "start": "set NODE_ENV=development && webpack-dev-server"
-  },
+  "name": "react-lazy-imager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "devDependencies": {
-    "@babel/core": "^7.1.0",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/preset-stage-0": "^7.0.0",
-    "babel-loader": "^8.0.2",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "css-loader": "^1.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "no": "^0.0.1",
-    "script-loader": "^0.7.2",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.1.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
-  }
+    "npm": "^6.4.1",
+    "babel-loader": "^7.1.3",
+    "babel-plugin-import": "^1.6.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "export NODE_ENV=development && webpack-dev-server",
+    "build": "export NODE_ENV=production && rm -rf dist  && webpack --config webpack.config.js",
+    "site": "rm -rf lib && cp -r src/components/imageLoader/. lib && mv lib/index.jsx lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abelce/react-imager.git"
+  },
+  "author": "https://github.com/abelce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abelce/react-imager/issues"
+  },
+  "homepage": "https://github.com/abelce/react-imager#readme"
 }

@@ -1,17 +1,23 @@
+
 {
     "presets": [
-        "@babel/preset-env",
-        "@babel/preset-react"
+      ["es2015"],
+      "react",
+      "stage-0"
     ],
     "plugins": [
-        "@babel/plugin-transform-runtime",
-        "@babel/plugin-proposal-class-properties"
+      ["import", {
+          "libraryName": "antd",
+          "style": "css"
+      }],
+      ["transform-runtime"],
+      "transform-decorators-legacy"
     ],
     "env": {
-        "production": {
-            "plugins": [
-                "transform-remove-console"
-            ]
-        }
+      "production": {
+        "plugins": [
+          "transform-remove-console"
+        ]
+      }
     }
-}
+  }
