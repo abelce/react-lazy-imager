@@ -6,12 +6,7 @@
       "stage-0"
     ],
     "plugins": [
-      ["import", {
-          "libraryName": "antd",
-          "style": "css"
-      }],
       ["transform-runtime"],
-      "transform-decorators-legacy"
     ],
     "env": {
       "production": {
