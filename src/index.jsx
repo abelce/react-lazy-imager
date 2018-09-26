@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-class ImageLoader extends React.Component {
+class Imager extends React.Component {
 
     static propTypes = {
         src: PropTypes.string.isRequired,
@@ -46,4 +46,4 @@ class ImageLoader extends React.Component {
     }
 }
 
-export default ImageLoader;
+export default Imager;

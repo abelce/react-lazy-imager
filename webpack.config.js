@@ -14,8 +14,7 @@ const config = {
     historyApiFallback: true,
   },
   entry: {
-    app: __dirname + "/src/app.jsx",
-    imager: __dirname + "/src/components/imageLoader/index.jsx"
+    app: __dirname + "/test/app.jsx",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -26,21 +25,21 @@ const config = {
     rules: [
       {
         test: /\.jsx$|\.js$|\.tsx$|\.ts$/,
-        include: /src/,
-        exclude: [/node_modules/, /src\/assets/],
+        include: [/test/, /src/],
+        exclude: [/node_modules/, /test\/assets/],
         loader: "babel-loader",
-      }
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       chunks: ["app"],
-      template: __dirname + "/src/assets/index.ejs",
+      template: __dirname + "/test/assets/index.ejs",
     }),
     new webpack.HashedModuleIdsPlugin(),
   ],
   resolve: {
-    modules: ["src", "node_modules"],
+    modules: ["test", "node_modules", "src"],
     extensions: [".js", ".jsx", ".css"],
   },
   optimization: {
@@ -56,4 +55,3 @@ function isDev() {
   return process.env.NODE_ENV === "development";
 }
 module.exports = config;
-
