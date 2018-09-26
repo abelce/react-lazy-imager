@@ -6,10 +6,16 @@ class Imager extends React.Component {
 
     static propTypes = {
         src: PropTypes.string.isRequired,
+        thumbSrc: PropTypes.string,
     }
 
     static defaultProps = {
-        src: ''
+        src: '',
+        thumbSrc: '',
+    }
+
+    state = {
+        loaded: false,
     }
 
     componentDidMount() {
@@ -29,7 +35,9 @@ class Imager extends React.Component {
               newImg.onload = resolve;
             })
             .then(() => {
-              img.src = this.props.src;
+                this.setState({
+                    loaded: true,
+                });
             })
             .finally(() => {
                 newImg = null;
@@ -41,8 +49,11 @@ class Imager extends React.Component {
     }
 
     render() {
-        const {src, children, ...others} = this.props;
-        return <img ref={(target) => this.imgRef = target} {...others}/>;
+        const {src, thumbSrc, children, ...others} = this.props;
+        return <img 
+          ref={(target) => this.imgRef = target}
+          src={this.state.loaded ? src : thumbSrc}
+          {...others}/>;
     }
 }
 

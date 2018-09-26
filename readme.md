@@ -31,6 +31,7 @@ It has all the attributes of the \<img\> tag, such as:
 + style
 + className
 + alt
++ thumbSrc: the thumbnail before load the  image from **src**
 
 ## License
 MIT License
