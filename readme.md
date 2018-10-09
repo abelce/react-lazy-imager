@@ -32,6 +32,8 @@ It has all the attributes of the \<img\> tag, such as:
 + className
 + alt
 + thumbSrc: the thumbnail before load the  image from **src**
++ onLoad: callback after img load success
++ onFailed: callback after img load fail
 
 ## License
 MIT License
