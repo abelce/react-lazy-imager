@@ -14,7 +14,7 @@ const config = {
     historyApiFallback: true,
   },
   entry: {
-    app: __dirname + "/test/app.jsx",
+    app: ["@babel/polyfill", __dirname + "/test/app.jsx"],
   },
   output: {
     path: path.resolve(__dirname, "dist"),

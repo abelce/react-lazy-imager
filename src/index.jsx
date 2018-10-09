@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import 'intersection-observer';
 
 class Imager extends React.Component {
 
@@ -18,6 +19,7 @@ class Imager extends React.Component {
         loaded: false,
     }
 
+    isLoading = false;
     componentDidMount() {
         this.load();
     }
@@ -26,10 +28,15 @@ class Imager extends React.Component {
         if (!this.props.src) {
             return;
         }
+
+        if (this.isLoading) {
+            return;
+        }
         let img = ReactDOM.findDOMNode(this.imgRef);
         let observer = new IntersectionObserver(entries => {
           if (entries[0].intersectionRatio > 0) {
             let newImg = new Image();
+            this.isLoading = true;
             new Promise((resolve) => {
               newImg.src = this.props.src;
               newImg.onload = resolve;
@@ -42,6 +49,7 @@ class Imager extends React.Component {
             .finally(() => {
                 newImg = null;
                 observer.disconnect();
+                this.isLoading = false;
             })
           }
         })
@@ -52,7 +60,7 @@ class Imager extends React.Component {
         const {src, thumbSrc, children, ...others} = this.props;
         return <img 
           ref={(target) => this.imgRef = target}
-          src={this.state.loaded ? src : (thumbSrc ? thumbSrc : src)}
+          src={this.state.loaded ? src : (thumbSrc ? thumbSrc : '')}
           {...others}/>;
     }
 }
