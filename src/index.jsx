@@ -8,17 +8,21 @@ class Imager extends React.Component {
     static propTypes = {
         src: PropTypes.string.isRequired,
         thumbSrc: PropTypes.string,
+        onLoad: PropTypes.func,
+        onFailed: PropTypes.func,
     }
 
     static defaultProps = {
         src: '',
         thumbSrc: '',
+        onLoad: () => {},
     }
 
     state = {
         loaded: false,
     }
 
+    //标识是否正在加载
     isLoading = false;
     componentDidMount() {
         this.load();
@@ -45,11 +49,19 @@ class Imager extends React.Component {
                 this.setState({
                     loaded: true,
                 });
+                if (this.props.onload) {
+                    this.props.onload();
+                }
+            })
+            .catch(() => {
+                if (this.props.onFailed) {
+                    this.props.onFailed();
+                }
             })
             .finally(() => {
+                this.isLoading = false;
                 newImg = null;
                 observer.disconnect();
-                this.isLoading = false;
             })
           }
         })
