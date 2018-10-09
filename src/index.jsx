@@ -52,7 +52,7 @@ class Imager extends React.Component {
         const {src, thumbSrc, children, ...others} = this.props;
         return <img 
           ref={(target) => this.imgRef = target}
-          src={this.state.loaded ? src : thumbSrc}
+          src={this.state.loaded ? src : (thumbSrc ? thumbSrc : src)}
           {...others}/>;
     }
 }
