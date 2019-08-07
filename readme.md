@@ -17,9 +17,17 @@ import Img from 'react-imager';
 
 class App extends React.Component {
 
+  successCallback(){
+
+  }
+
   render() {
     return (
-      <Img src="xxx"/>
+      <Img 
+        src="./expamle.png" 
+        thumbSrc="./thumb.png" 
+        className="demo"/>
+        onSuccess={this.successCallback}
     );
   }
 }
@@ -31,9 +39,10 @@ It has all the attributes of the \<img\> tag, such as:
 + style
 + className
 + alt
-+ thumbSrc: the thumbnail before load the  image from **src**
-+ onLoad: callback after img load success
-+ onFailed: callback after img load fail
++ thumbSrc: display before the src is loaded
++ errorSrc: display while load src failed
++ onSuccess: callback after the image is successfully loaded
++ onFailed: callback after the image is failed loaded
 
 ## License
 MIT License
